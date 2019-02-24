@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour {
     {
         facingRight = !facingRight; //switch true to false or false to true
         Vector3 scale = transform.localScale; //grabbing the z value of the character
-        scale.z *= -1; //flip the object
+        scale.x *= -1; //flip the object
         transform.localScale = scale; //update the z of the character's scaling
     }
 
@@ -98,6 +98,18 @@ public class PlayerController : MonoBehaviour {
         {
             isGrounded = false;
             rb.AddForce(new Vector3(0, jumpHeight, 0));
+        }
+    }
+
+    public bool giveDir()
+    {
+        if (facingRight)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
     

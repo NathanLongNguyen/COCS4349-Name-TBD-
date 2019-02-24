@@ -11,6 +11,21 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1169991674714078}
   m_IsPrefabAsset: 1
+--- !u!1 &1102068035174238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4927107137900560}
+  m_Layer: 0
+  m_Name: Shooting point
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1169991674714078
 GameObject:
   m_ObjectHideFlags: 0
@@ -23,6 +38,7 @@ GameObject:
   - component: {fileID: 23260081379019672}
   - component: {fileID: 65958001188812842}
   - component: {fileID: 114192874107116498}
+  - component: {fileID: 114405569545630450}
   - component: {fileID: 54992625391218956}
   m_Layer: 0
   m_Name: Player(Cube)
@@ -57,8 +73,22 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4952034469561662}
+  - {fileID: 4927107137900560}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4927107137900560
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1102068035174238}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.79, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4761744101137186}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4952034469561662
 Transform:
@@ -160,3 +190,17 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   groundCheckObj: {fileID: 4952034469561662}
+--- !u!114 &114405569545630450
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1169991674714078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e689efe7e304ed34ca752f698d823c3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attSpeed: 0
+  shotPos: {fileID: 4927107137900560}
+  bullet: {fileID: 1209634790362174, guid: 88b88135a469ee1449aca2144cc7660e, type: 2}
