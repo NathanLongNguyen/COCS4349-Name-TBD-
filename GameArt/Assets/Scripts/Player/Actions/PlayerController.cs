@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour {
     //function for checking if the player is grounded
     void groundCheck()
     {
-        Debug.Log(isGrounded);
+        
         groundCollision = Physics.OverlapSphere(groundCheckObj.position, groundC_rad, whatIsGround);
         if(groundCollision.Length> 0)
         {
