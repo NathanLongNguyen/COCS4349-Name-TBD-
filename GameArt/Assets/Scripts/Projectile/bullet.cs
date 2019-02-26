@@ -6,10 +6,12 @@ public class bullet : MonoBehaviour {
 
     public float timer;
     public float speed;
+    public Rigidbody rb;
+    private PlayerController player;
 
 	// Use this for initialization
 	void Start () {
-   
+        
     }
 	
 	// Update is called once per frame
@@ -31,6 +33,12 @@ public class bullet : MonoBehaviour {
         pos += transform.rotation * velocity;
 
         transform.position = pos;
+    }
+
+    //Destroy on touch for now
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);
     }
 
 

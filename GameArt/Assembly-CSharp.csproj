@@ -61,12 +61,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\pit.cs" />
+    <Compile Include="Assets\Scripts\Breakable\box.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Health\Health.cs" />
     <Compile Include="Assets\Scripts\Player\Actions\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\Actions\Shooting.cs" />
     <Compile Include="Assets\Scripts\Projectile\bullet.cs" />
+    <Compile Include="Assets\Scripts\Trap\pit.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Doge/Documents/GitHub/GameArt2/COCS4349-Name-TBD-/GameArt/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

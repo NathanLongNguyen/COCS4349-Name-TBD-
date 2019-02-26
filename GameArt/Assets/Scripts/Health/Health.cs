@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Health : MonoBehaviour {
 
-    public int maxHealth;
-    public float regenTimer;
+    public int maxHealth; 
+    public float regenTimer; //set how fast the regen is 
     float timer;
-    public int curHealth, regenRate;
+    public int curHealth, regenRate; //regenRate is the rate at which health regens at
 
 
 	// Use this for initialization
@@ -20,16 +20,17 @@ public class Health : MonoBehaviour {
 	void Update () {
 
         //Debug.Log(curHealth);
-        if(curHealth < maxHealth && curHealth >0)
+        if(curHealth < maxHealth && curHealth >0) //if player's health is not at full and still alive, then they're able to regen health
         {
             Regen();
-        } else if (curHealth <= 0)
+        } else if (curHealth <= 0) //death when player's health reaches zero
         {
             Death();
         }
 	}
 
-    public void takeDamage(int dam)
+    //Function for taking damage
+    public void takeDamage(int dam) //function is made to public so that other scripts can access it 
     {
         curHealth -=  dam;
         if (curHealth < 0)
@@ -38,6 +39,7 @@ public class Health : MonoBehaviour {
         }
     }
 
+    //Function for health regen
     void Regen()
     {
         timer -= Time.deltaTime;
@@ -48,8 +50,9 @@ public class Health : MonoBehaviour {
         }
     }
 
+    //Function for death
     void Death()
     {
-        Destroy(gameObject);
+        Destroy(gameObject); //Placeholder
     }
 }

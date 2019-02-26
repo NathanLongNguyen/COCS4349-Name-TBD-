@@ -5,14 +5,15 @@ using UnityEngine;
 public class Shooting : MonoBehaviour {
 
     public float attSpeed;
-    public Transform shotPos;
+    public Transform shotPos, shotPosR;
     float timer;
     public GameObject bullet;
+    private PlayerController player;
 
 
 	// Use this for initialization
 	void Start () {
-        
+        player = gameObject.GetComponent<PlayerController>();
 	}
 	
 	// Update is called once per frame
@@ -28,8 +29,15 @@ public class Shooting : MonoBehaviour {
 
     void Shoot()
     {
+        if (player.giveDir())
+        {
             Instantiate(bullet, shotPos.position, shotPos.rotation);
-
+        }
+        else if (!player.giveDir())
+        {
+            //Debug.Log("shoot left");
+            Instantiate(bullet, shotPosR.position, shotPosR.rotation);
+        }
     }
 }
 
