@@ -5,6 +5,7 @@ using UnityEngine;
 public class box : MonoBehaviour {
 
     int boxHealth = 3;
+    string status = "idle";
     Renderer rend;
 
     // Use this for initialization
@@ -14,18 +15,28 @@ public class box : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        switch (boxHealth)
+        switch (status)
         {
-            case 3:
-                rend.material.SetColor("_Color", Color.green);
+            case "idle":
+                //act like a box
                 break;
-            case 2:
-                rend.material.SetColor("_Color", Color.yellow);
-                break;
-            case 1:
-                rend.material.SetColor("_Color", Color.red);
+            case "damaged":
+                boxHealth--;
+                if (boxHealth > 0)
+                {
+                    if (boxHealth == 2)
+                        rend.material.SetColor("_Color", Color.yellow);
+                    else if (boxHealth == 1)
+                        rend.material.SetColor("_Color", Color.red);
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
+                status = "idle";
                 break;
             default:
+                Debug.Log("Error with box --- destroying object");
                 Destroy(gameObject);
                 break;
         }
@@ -36,7 +47,8 @@ public class box : MonoBehaviour {
     {
         if (other.CompareTag("Bullet"))
         {
-            boxHealth--;
+            status = "damaged";
+            //boxHealth--;
             //Destroy(gameObject);
         }
     }
