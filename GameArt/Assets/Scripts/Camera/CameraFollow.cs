@@ -20,7 +20,16 @@ public class CameraFollow : MonoBehaviour {
 
     void FixedUpdate()
     {
-        Vector3 cameraPos = new Vector3(target.position.x, target.position.y + y_offset, z_offset);
-        transform.position = Vector3.Lerp(transform.position, cameraPos, smoothing * Time.deltaTime);
+        if (isPlayerAlive(target))
+        {
+            Vector3 cameraPos = new Vector3(target.position.x, target.position.y + y_offset, z_offset);
+            transform.position = Vector3.Lerp(transform.position, cameraPos, smoothing * Time.deltaTime);
+        }
+    }
+
+    bool isPlayerAlive(Transform player)
+    {
+        if (player != null) return true;
+        else return false;
     }
 }
