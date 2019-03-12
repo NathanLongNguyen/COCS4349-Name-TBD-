@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 5
-  speed: 20
+  speed: 10
   rb: {fileID: 54502881682287754}
 --- !u!135 &135513466930905610
 SphereCollider:

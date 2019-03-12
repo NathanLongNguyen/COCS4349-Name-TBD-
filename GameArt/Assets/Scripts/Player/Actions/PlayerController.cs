@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -13,23 +14,28 @@ public class PlayerController : MonoBehaviour {
     float groundC_rad;
     public LayerMask whatIsGround;
     public Transform groundCheckObj;
+    public Text winText;
+    private int maxJump = 2;
+    int currJump;
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         rb = GetComponent<Rigidbody>();
         facingRight = true;
+        winText.text = "";
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        
-	}
+        Debug.Log(currJump);
+        Movement();
+    }
 
     // Use FixedUpdate for physics based function
     void FixedUpdate()
     {
-        Movement();
+        
     }
 
     void Movement()
@@ -85,6 +91,7 @@ public class PlayerController : MonoBehaviour {
         if(groundCollision.Length> 0)
         {
             isGrounded = true;
+            currJump = 0;
         } else
         {
             isGrounded = false;
@@ -94,11 +101,15 @@ public class PlayerController : MonoBehaviour {
     //function for jumping 
     void Jump()
     {
-        if(isGrounded && Input.GetAxis("Jump") > 0)
+        if(Input.GetButtonDown("Jump")  && (isGrounded || maxJump > currJump))
         {
             isGrounded = false;
-            rb.AddForce(new Vector3(0, jumpHeight, 0));
+            rb.AddForce(Vector3.up *jumpHeight, 0);
+            currJump++;
+           
         }
+
+
     }
 
     public bool giveDir()
@@ -112,6 +123,22 @@ public class PlayerController : MonoBehaviour {
             return false;
         }
     }
-    
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Pick Up"))
+        {
+            //Destroy the gameObject when collide
+            Destroy(other.gameObject);
+            //Can alternatively set to inactive instead:
+            //other.gameObject.SetActive(false);
+        }
+
+        if (other.gameObject.CompareTag("EndTrigger"))
+        {
+            winText.text = "Level end!";
+        }
+    }
+
 }
 
