@@ -63,7 +63,13 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Breakable\box.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
+    <Compile Include="Assets\Scripts\Camera\CameraMove.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Action\Enemy_shooting.cs" />
+    <Compile Include="Assets\Scripts\Enemy\Action\Enemy_Sight.cs" />
+    <Compile Include="Assets\Scripts\Game Manager\End Level Trigger\EndLevel.cs" />
+    <Compile Include="Assets\Scripts\Game Manager\SpawnPoint\Spawner.cs" />
     <Compile Include="Assets\Scripts\Health\Health.cs" />
+    <Compile Include="Assets\Scripts\PickUps\Rotator script\Rotator.cs" />
     <Compile Include="Assets\Scripts\Player\Actions\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\Actions\Shooting.cs" />
     <Compile Include="Assets\Scripts\Projectile\bullet.cs" />

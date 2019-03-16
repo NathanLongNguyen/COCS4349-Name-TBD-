@@ -38,7 +38,10 @@ public class bullet : MonoBehaviour {
     //Destroy on touch for now
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        if (other.CompareTag("Enemy") || other.CompareTag("Ground") || other.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
 
 
