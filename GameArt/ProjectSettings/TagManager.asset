@@ -8,6 +8,8 @@ TagManager:
   - Pick Up
   - Ground
   - Enemy
+  - EndTrigger
+  - Interactable
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - 
   - PostProcessing
   - Ground
+  - Target
   - Box
-  - 
   - 
   - 
   - 

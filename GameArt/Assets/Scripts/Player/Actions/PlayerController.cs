@@ -18,18 +18,33 @@ public class PlayerController : MonoBehaviour {
     private int maxJump = 2;
     int currJump;
 
+    //inventory
+    public Inventory inventory;
+    private InteractableItemBase mInteractItem = null;
+    public HUD hud;
+
+    //Camera/Field of Vision
+    //Camera viewCamera;
 
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
         facingRight = true;
-        winText.text = "";
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        Debug.Log(currJump);
+
+        //winText.text = "";
+
+        //Field of Vision testing
+        //viewCamera = Camera.main;
+    }
+
+    // Update is called once per frame
+    void Update () {
+        //Debug.Log(currJump);
         Movement();
+
+        //Field of vision testing
+        //Vector3 mousePos = viewCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, viewCamera.transform.position.y));
+        //transform.LookAt(mousePos + Vector3.left * transform.position.x);
     }
 
     // Use FixedUpdate for physics based function
@@ -126,6 +141,8 @@ public class PlayerController : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
+        InteractableItemBase item = other.GetComponent<InteractableItemBase>();
+
         if (other.gameObject.CompareTag("Pick Up"))
         {
             //Destroy the gameObject when collide
@@ -134,11 +151,21 @@ public class PlayerController : MonoBehaviour {
             //other.gameObject.SetActive(false);
         }
 
+        //End Level Tag Trigger
         if (other.gameObject.CompareTag("EndTrigger"))
         {
+            //Replace with better text
             winText.text = "Level end!";
         }
-    }
 
+        //Inventory item interact
+        if (other.gameObject.CompareTag("Interactable"))
+        {
+            mInteractItem = item;
+            InventoryItemBase inventoryItem = mInteractItem as InventoryItemBase;
+            inventory.AddItem(inventoryItem);
+            inventoryItem.OnPickup();
+        }
+    }
 }
 
