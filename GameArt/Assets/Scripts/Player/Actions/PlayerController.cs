@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour {
     public HUD hud;
 
     //Camera/Field of Vision
-    //Camera viewCamera;
+    Camera viewCamera;
 
     // Use this for initialization
     void Start () {
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour {
         //winText.text = "";
 
         //Field of Vision testing
-        //viewCamera = Camera.main;
+        viewCamera = Camera.main;
     }
 
     // Update is called once per frame
@@ -43,7 +43,8 @@ public class PlayerController : MonoBehaviour {
         Movement();
 
         //Field of vision testing
-        //Vector3 mousePos = viewCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, viewCamera.transform.position.y));
+        //Vector3 mousePos = viewCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, viewCamera.transform.position.z));
+        //transform.LookAt(new Vector2(0,4));
         //transform.LookAt(mousePos + Vector3.left * transform.position.x);
     }
 
@@ -79,7 +80,7 @@ public class PlayerController : MonoBehaviour {
         //move by changing the velocity of the rigidbody
         rb.velocity = new Vector3(move * speed, rb.velocity.y, 0);
 
-        //Check to see if we need to flip the character
+        //Check to see if we need to flip the character0
         if(move > 0 && !facingRight)
         {
             Flip();
@@ -93,9 +94,7 @@ public class PlayerController : MonoBehaviour {
     void Flip()
     {
         facingRight = !facingRight; //switch true to false or false to true
-        Vector3 scale = transform.localScale; //grabbing the z value of the character
-        scale.x *= -1; //flip the object
-        transform.localScale = scale; //update the z of the character's scaling
+        transform.Rotate(Vector3.up * -180);    //rotate the character left and right
     }
 
     //function for checking if the player is grounded
@@ -119,6 +118,7 @@ public class PlayerController : MonoBehaviour {
         if(Input.GetButtonDown("Jump")  && (isGrounded || maxJump > currJump))
         {
             isGrounded = false;
+            rb.velocity = Vector3.zero;
             rb.AddForce(Vector3.up *jumpHeight, 0);
             currJump++;
            
