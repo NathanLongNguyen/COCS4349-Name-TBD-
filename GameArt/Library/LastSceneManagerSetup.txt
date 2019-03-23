@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Testing.unity
+- path: Assets/Environment/Scenes/Front_Courtyard.unity
   isLoaded: 1
   isActive: 1

@@ -8,6 +8,8 @@ TagManager:
   - Pick Up
   - Ground
   - Enemy
+  - Edge
+  - ground
   layers:
   - Default
   - TransparentFX

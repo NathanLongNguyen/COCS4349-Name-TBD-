@@ -63,6 +63,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1439439597273732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4311373750973844}
+  m_Layer: 0
+  m_Name: Shooting point right
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1856145876247578
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +109,19 @@ Transform:
   m_Father: {fileID: 4761744101137186}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4311373750973844
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1439439597273732}
+  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
+  m_LocalPosition: {x: 0.79, y: 0, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4761744101137186}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
 --- !u!4 &4761744101137186
 Transform:
   m_ObjectHideFlags: 1
@@ -107,6 +135,7 @@ Transform:
   - {fileID: 4043199229409130}
   - {fileID: 4927107137900560}
   - {fileID: 4952034469561662}
+  - {fileID: 4311373750973844}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -130,7 +159,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1325323638831286}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.565, z: 0}
+  m_LocalPosition: {x: 0, y: -0.577, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4761744101137186}
@@ -275,8 +304,9 @@ MonoBehaviour:
   snappy: 1
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1536
   groundCheckObj: {fileID: 4952034469561662}
+  winText: {fileID: 0}
 --- !u!114 &114216077317918406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -305,4 +335,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attSpeed: 0.25
   shotPos: {fileID: 4927107137900560}
+  shotPosR: {fileID: 4311373750973844}
   bullet: {fileID: 1209634790362174, guid: 88b88135a469ee1449aca2144cc7660e, type: 2}

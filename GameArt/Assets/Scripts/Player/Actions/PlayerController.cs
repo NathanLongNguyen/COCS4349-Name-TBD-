@@ -23,12 +23,12 @@ public class PlayerController : MonoBehaviour {
     void Start () {
         rb = GetComponent<Rigidbody>();
         facingRight = true;
-        winText.text = "";
+        //winText.text = "";
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(currJump);
+        //Debug.Log(currJump);
         Movement();
     }
 
@@ -134,10 +134,10 @@ public class PlayerController : MonoBehaviour {
             //other.gameObject.SetActive(false);
         }
 
-        if (other.gameObject.CompareTag("EndTrigger"))
+        /*if (other.gameObject.CompareTag("EndTrigger"))
         {
             winText.text = "Level end!";
-        }
+        }*/
     }
 
 }
