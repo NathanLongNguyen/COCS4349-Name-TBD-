@@ -169,7 +169,7 @@ public class FieldOfView : MonoBehaviour
         {
             angleInDegrees += transform.eulerAngles.y;
         }
-        return new Vector3(Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), -Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0);
+        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), 0);
     }
 
     public struct ViewCastInfo

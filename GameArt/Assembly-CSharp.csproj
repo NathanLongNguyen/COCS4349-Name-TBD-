@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Camera\CameraMove.cs" />
     <Compile Include="Assets\Scripts\Detection\FieldOfView.cs" />
     <Compile Include="Assets\Scripts\Detection\FieldOfViewEditor.cs" />
+    <Compile Include="Assets\Scripts\Detection\FindLights.cs" />
     <Compile Include="Assets\Scripts\Detection\NewPlayer.cs" />
     <Compile Include="Assets\Scripts\Enemy\Action\Enemy_shooting.cs" />
     <Compile Include="Assets\Scripts\Enemy\Action\Enemy_Sight.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\Scripts\Inventory\InventoryItemBase.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryMenu.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
+    <Compile Include="Assets\Scripts\Inventory\ItemClickHandler.cs" />
     <Compile Include="Assets\Scripts\Inventory\Knife1.cs" />
     <Compile Include="Assets\Scripts\Menus\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\PickUps\Rotator.cs" />

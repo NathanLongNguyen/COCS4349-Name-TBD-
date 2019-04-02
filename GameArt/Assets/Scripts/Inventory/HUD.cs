@@ -24,8 +24,8 @@ public class HUD : MonoBehaviour
             index++;
 
             // Border... Image
-            Transform imageTransform = slot.GetChild(0);
-            Transform textTransform = slot.GetChild(1);
+            Transform imageTransform = slot.GetChild(0).GetChild(0);
+            Transform textTransform = slot.GetChild(0).GetChild(1);
             Image image = imageTransform.GetComponent<Image>();
             Text txtCount = textTransform.GetComponent<Text>();
 
@@ -54,9 +54,8 @@ public class HUD : MonoBehaviour
         {
             index++;
 
-            Transform imageTransform = slot.GetChild(0);
-            Transform textTransform = slot.GetChild(1);
-
+            Transform imageTransform = slot.GetChild(0).GetChild(0);
+            Transform textTransform = slot.GetChild(0).GetChild(1);
             Image image = imageTransform.GetComponent<Image>();
             Text txtCount = textTransform.GetComponent<Text>();
         }
