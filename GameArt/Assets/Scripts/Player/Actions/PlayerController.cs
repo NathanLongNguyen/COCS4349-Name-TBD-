@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour {
     public Text winText;
     private int maxJump = 2;
     int currJump;
+    public GameObject dustCloud;
+    public GameObject rotatingRoom;
+    private int touched = 0;
 
     //inventory
     public Inventory inventory;
@@ -25,6 +28,24 @@ public class PlayerController : MonoBehaviour {
 
     //Camera/Field of Vision
     Camera viewCamera;
+
+    IEnumerator Rotate(Vector3 byAngles, float inTime)
+    {
+        Quaternion fromAngle = rotatingRoom.transform.rotation;
+        Quaternion toAngle = Quaternion.Euler(rotatingRoom.transform.eulerAngles + byAngles);
+        FreezeChar();
+        GameObject.Find("Player(Cube)").GetComponent<PlayerController>().enabled = false;
+        for (float i = 0f; i < 1f; i += Time.deltaTime / inTime)
+        {
+            rotatingRoom.transform.rotation = Quaternion.Slerp(fromAngle, toAngle, i);
+            yield return null;
+
+        }
+        UnfreezeChar();
+        GameObject.Find("Player(Cube)").GetComponent<PlayerController>().enabled = true;
+        yield return null;
+
+    }
 
     // Use this for initialization
     void Start () {
@@ -40,7 +61,11 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         //Debug.Log(currJump);
-        Movement();
+        if (touched == 0)
+            Movement();
+        else if (touched == 1)
+            MovementV();
+
 
         //Field of vision testing
         //Vector3 mousePos = viewCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, viewCamera.transform.position.z));
@@ -62,6 +87,11 @@ public class PlayerController : MonoBehaviour {
 
     }
 
+    void MovementV()
+    {
+        moveVertical();
+    }
+
     //fucntion for moving horizontally
     void moveHorizontal()
     {
@@ -77,6 +107,7 @@ public class PlayerController : MonoBehaviour {
             move = Input.GetAxisRaw("Horizontal");
         }
 
+
         //move by changing the velocity of the rigidbody
         rb.velocity = new Vector3(move * speed, rb.velocity.y, 0);
 
@@ -85,6 +116,34 @@ public class PlayerController : MonoBehaviour {
         {
             Flip();
         } else if (move < 0 && facingRight)
+        {
+            Flip();
+        }
+    }
+    void moveVertical()
+    {
+        float move;
+
+        //See which type of movement we want
+        if (!snappy)
+        {
+            move = Input.GetAxis("Vertical");
+        }
+        else
+        {
+            move = Input.GetAxisRaw("Vertical");
+        }
+
+
+        //move by changing the velocity of the rigidbody
+        rb.velocity = new Vector3(move * speed, rb.velocity.z, 0);
+
+        //Check to see if we need to flip the character0
+        if (move > 0 && !facingRight)
+        {
+            Flip();
+        }
+        else if (move < 0 && facingRight)
         {
             Flip();
         }
@@ -106,6 +165,7 @@ public class PlayerController : MonoBehaviour {
         {
             isGrounded = true;
             currJump = 0;
+            //Instantiate(dustCloud, transform.position, transform.rotation);
         } else
         {
             isGrounded = false;
@@ -139,6 +199,18 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    public void FreezeChar()
+    {
+        rb.isKinematic = true;
+        rb.detectCollisions = false;
+    }
+    public void UnfreezeChar()
+    {
+        rb.isKinematic = false;
+        rb.detectCollisions = true;
+    }
+
+
     void OnTriggerEnter(Collider other)
     {
         InteractableItemBase item = other.GetComponent<InteractableItemBase>();
@@ -165,6 +237,20 @@ public class PlayerController : MonoBehaviour {
             InventoryItemBase inventoryItem = mInteractItem as InventoryItemBase;
             inventory.AddItem(inventoryItem);
             inventoryItem.OnPickup();
+        }
+
+
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Rotate"))
+        {
+            if (Input.GetKeyDown("h"))
+            {
+                touched = 1;
+                StartCoroutine(Rotate(Vector3.up * -90, 0.8f));
+            }
         }
     }
 }

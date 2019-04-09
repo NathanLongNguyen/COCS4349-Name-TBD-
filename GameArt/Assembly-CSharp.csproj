@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Enemy\Action\Enemy_shooting.cs" />
     <Compile Include="Assets\Scripts\Enemy\Action\Enemy_Sight.cs" />
     <Compile Include="Assets\Scripts\Game Manager\EndLevel.cs" />
+    <Compile Include="Assets\Scripts\Game Manager\RotatingRoom.cs" />
     <Compile Include="Assets\Scripts\Game Manager\Spawner.cs" />
     <Compile Include="Assets\Scripts\Health\Health.cs" />
     <Compile Include="Assets\Scripts\Inventory\HUD.cs" />
@@ -79,8 +80,11 @@
     <Compile Include="Assets\Scripts\Inventory\InventoryMenu.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\Scripts\Inventory\ItemClickHandler.cs" />
+    <Compile Include="Assets\Scripts\Inventory\ItemClickHelper.cs" />
     <Compile Include="Assets\Scripts\Inventory\Knife1.cs" />
+    <Compile Include="Assets\Scripts\Inventory\Knife2.cs" />
     <Compile Include="Assets\Scripts\Menus\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\Particles\Destroy.cs" />
     <Compile Include="Assets\Scripts\PickUps\Rotator.cs" />
     <Compile Include="Assets\Scripts\Player\Actions\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\Actions\Shooting.cs" />

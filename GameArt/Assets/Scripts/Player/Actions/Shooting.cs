@@ -10,11 +10,10 @@ public class Shooting : MonoBehaviour {
     public GameObject bullet;
     private PlayerController player;
 
-
 	// Use this for initialization
 	void Start () {
         player = gameObject.GetComponent<PlayerController>();
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {

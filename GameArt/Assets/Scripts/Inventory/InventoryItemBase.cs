@@ -40,21 +40,19 @@ public class InventoryItemBase : InteractableItemBase
     //Use for when pick-up becomes usable weapon
     public virtual void OnUse()
     {
-        //transform.localPosition = PickPosition;
-        //transform.localEulerAngles = PickRotation;
+        Debug.Log("Clicked works");
     }
 
     public virtual void OnPickup()
     {
         Destroy(gameObject.GetComponent<Rigidbody>());
         gameObject.SetActive(false);
-
     }
 
-    /* Use for when pick-up becomes usable weapon(?) 
-    public Vector3 PickPosition;
-    public Vector3 PickRotation;
-    public bool UseItemAfterPickup = false;
+    //Use for when pick-up becomes usable weapon(?) 
+    //public Vector3 PickPosition;
+    //public Vector3 PickRotation;
+    /*public bool UseItemAfterPickup = false;
     */
 }
 
