@@ -61,6 +61,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Door_move.cs" />
+    <Compile Include="Assets\Player\player_controls.cs" />
+    <Compile Include="Assets\Player\player_controls_2.cs" />
     <Compile Include="Assets\Scripts\Breakable\box.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraMove.cs" />
@@ -71,6 +74,7 @@
     <Compile Include="Assets\Scripts\Enemy\Action\Enemy_shooting.cs" />
     <Compile Include="Assets\Scripts\Enemy\Action\Enemy_Sight.cs" />
     <Compile Include="Assets\Scripts\Game Manager\EndLevel.cs" />
+    <Compile Include="Assets\Scripts\Game Manager\Gravity.cs" />
     <Compile Include="Assets\Scripts\Game Manager\RotatingRoom.cs" />
     <Compile Include="Assets\Scripts\Game Manager\Spawner.cs" />
     <Compile Include="Assets\Scripts\Health\Health.cs" />
